@@ -1,9 +1,25 @@
+<style>
+    .center {
+        text-align: center;
+    }
+
+    h6 {
+        text-decoration-line: underline;
+    }
+
+    .font-this {
+        font-family: 'Courier New', Courier, monospace;
+    }
+</style>
+
+
+
 <div class="container">
     <h1 class="center">Sún Mọ</h1>
-
-    <h3 class="container">A real-time burthday tracker and countdown application for extended-family members</h3>
-
-    <ul class="container">
+    <h6 class="container center underline">A real-time birthday tracker and countdown application for extended-family
+        members</h6>
+    <h3 class="font-this center">Family Name:{{family}}</h3>
+    <ul class="container center">
         {{#each person}}
         <p class="id"><strong>ID: </strong> {{this.id}}</p>
         <p class="name"><strong>Name: </strong> {{this.name}}</p>
