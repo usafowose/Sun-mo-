@@ -52,7 +52,7 @@ app.get("/birthdays", (req, res) => {
                 dob: currentMomentBday
             };
 
-            console.log(data[i]);
+            // console.log(data[i]);
 
 
             // console.log(currentMomentBday); 
