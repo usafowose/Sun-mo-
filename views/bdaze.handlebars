@@ -1,11 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html>
+<div class="container">
+    <h1 class="center">Sún Mọ</h1>
+
+    <h3 class="container">A real-time burthday tracker and countdown application for extended-family members</h3>
+
+    <ul class="container">
+        {{#each person}}
+        <p class="id"><strong>ID: </strong> {{this.id}}</p>
+        <p class="name"><strong>Name: </strong> {{this.name}}</p>
+        <p class="dob"><strong>DOB:</strong> {{this.dob}}</p>
+        <hr>
+        {{/each}}
+
+    </ul>
+</div>
