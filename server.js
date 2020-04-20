@@ -33,7 +33,7 @@ connection.connect(err => {
 
 // ROUTES
 app.get("/birthdays", (req, res) => {
-    var family = "Fowose";
+    var family = "Fowose"
 
     connection.query(`SELECT * FROM ${family}`, (err, data) => {
         if (err) throw err;
@@ -46,21 +46,18 @@ app.get("/birthdays", (req, res) => {
             var currentBday = data[i].dob
             var currentMomentBday = moment(currentBday).format("MMMM Do YYYY");
 
-            data[i] = {
-                id: data[i].id,
-                name: data[i].name,
-                dob: currentMomentBday
-            };
-
-            // console.log(data[i]);
-
+            // data[i] = {
+            //     id: data[i].id,
+            //     name: data[i].name,
+            //     dob: currentMomentBday
+            // };
+            data[i].dob = currentMomentBday;
 
             // console.log(currentMomentBday); 
             bdayData.push(data[i]);
 
         };
-        res.render("bdaze", { person: bdayData });
-
+        res.render("bdaze", { person: bdayData, family: family });
     })
 
 })
