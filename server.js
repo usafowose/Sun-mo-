@@ -31,7 +31,7 @@ connection.connect(err => {
     console.log(`Connected as ID ${connection.threadId}`);
 });
 
-// ROUTES
+// ROUTES 
 app.get("/birthdays", (req, res) => {
     var family = "Fowose"
 
@@ -56,10 +56,9 @@ app.get("/birthdays", (req, res) => {
             // console.log(currentMomentBday); 
             bdayData.push(data[i]);
 
-        };
+            };
         res.render("bdaze", { person: bdayData, family: family });
     })
-
 })
 
 
