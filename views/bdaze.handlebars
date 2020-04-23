@@ -10,6 +10,15 @@
     .font-this {
         font-family: 'Courier New', Courier, monospace;
     }
+
+    input {
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    label {
+        margin-right: 5px;
+    }
 </style>
 
 
@@ -26,6 +35,12 @@
         <p class="dob"><strong>DOB:</strong> {{this.dob}}</p>
         <hr>
         {{/each}}
-
     </ul>
+
+    <h2 class="center">Input Your Info Below</h2>
+
+    <form class="center" action="/insert" method="POST">
+        <label for="name">Name:</label><input type="text" name="name">
+        <button type="submit">Submit</button>
+    </form>
 </div>
