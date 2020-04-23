@@ -56,19 +56,22 @@ app.get("/birthdays", (req, res) => {
             // console.log(currentMomentBday); 
             bdayData.push(data[i]);
 
-            };
+        };
         res.render("bdaze", { person: bdayData, family: family });
     });
 });
 
-app.post("/insert", (req,res) => {
-    connection.query("INSERT INTO Fowose (name) VALUES (?)", [req.body.name], (err, result) => {
+app.post("/insert", (req, res) => {
+
+    var sql = "INSERT INTO Fowose (name, dob) VALUES (?)"
+    var bodyData = [req.body.name, req.body.dob]
+    connection.query(sql, [bodyData], (err, result) => {
 
         if (err) throw err
-        console.log(result); 
-        
+        console.log(result);
+
         res.redirect("/birthdays");
-    })
+    });
 })
 
 
