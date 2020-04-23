@@ -44,18 +44,14 @@ app.get("/birthdays", (req, res) => {
 
         for (i = 0; i < data.length; i++) {
             var currentBday = data[i].dob
-            var currentMomentBday = moment(currentBday).format("MMMM Do YYYY");
-
+            var currentMomentBday = moment(currentBday).format("MMMM Do, YYYY");
             // data[i] = {
             //     id: data[i].id,
             //     name: data[i].name,
             //     dob: currentMomentBday
             // };
             data[i].dob = currentMomentBday;
-
-            // console.log(currentMomentBday); 
             bdayData.push(data[i]);
-
         };
         res.render("bdaze", { person: bdayData, family: family });
     });
