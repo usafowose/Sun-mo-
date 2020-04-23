@@ -58,6 +58,16 @@ app.get("/birthdays", (req, res) => {
 
             };
         res.render("bdaze", { person: bdayData, family: family });
+    });
+});
+
+app.post("/insert", (req,res) => {
+    connection.query("INSERT INTO Fowose (name) VALUES (?)", [req.body.name], (err, result) => {
+
+        if (err) throw err
+        console.log(result); 
+        
+        res.redirect("/birthdays");
     })
 })
 
@@ -65,5 +75,5 @@ app.get("/birthdays", (req, res) => {
 
 
 app.listen(PORT, () => {
-    console.log(`Your app is listening on port ${PORT}`);
+    console.log(`Your app is listening on localhost:${PORT}`);
 }); 
