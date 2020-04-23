@@ -14,34 +14,84 @@
     input {
         margin-top: 15px;
         margin-bottom: 15px;
+        border-radius: 25px;
+        border: 2px solid #609;
+        padding: 20px;
+        width: 200px;
+        height: 15px;
+    }
+
+    button {
+        height: 35px;
+        width: 100px;
+        margin-top: 10px;
+        border-radius: 10px;
     }
 
     label {
+        text-align: left;
         margin-right: 5px;
+        margin-left: 5px;
+    }
+
+    label b,
+    hr,
+    .red {
+        color: red;
+    }
+
+    .scrollable {
+        height: 400px;
+        overflow-y: scroll;
+        outline-width: thin;
+        outline-style: dotted;
+        outline-color: black;
+    }
+
+    .danger {
+        background: purple;
     }
 </style>
 
 
 
-<div class="container">
+<div class="container header">
     <h1 class="center">Sún Mọ</h1>
-    <h6 class="container center underline">A real-time birthday tracker and countdown application for extended-family
-        members</h6>
-    <h3 class="font-this center">Family Name:{{family}}</h3>
-    <ul class="container center">
+    <p class=" font-this container center">
+        <i>A real-time birthday tracker and countdown application for extended-family
+            members</i>
+    </p>
+</div>
+
+<div class="container row col-sm-3 scrollable">
+    <h3 class="font-this center"><u>Family Name:{{family}}</u></h3>
+    <ul class="col-sm-12">
         {{#each person}}
-        <p class="id"><strong>ID: </strong> {{this.id}}</p>
-        <p class="name"><strong>Name: </strong> {{this.name}}</p>
-        <p class="dob"><strong>DOB:</strong> {{this.dob}}</p>
+        <p class="id">ID: {{this.id}}</p>
+        <p class="name"><b>Name:</b>{{this.name}}</p>
+        <p class="dob"><b>DOB: </b>{{this.dob}}</p>
         <hr>
         {{/each}}
     </ul>
+</div>
+<div class="form-group">
+    <form class="center danger" action="/insert" method="POST">
+        <p class="center"> <b>Input Your Info Below</b></p>
+        <div class="form-group">
+            <b><label for="name">Name: </label></b>
+            <input type="text" name="name">
 
-    <h2 class="center">Input Your Info Below</h2>
-
-    <form class="center" action="/insert" method="POST">
-        <label for="name">Name:</label><input type="text" name="name">
-        <label for="dob">DOB: (YYYY/MM/DD)</label><input id="datepicker" type="text" name="dob" maxlength="10">
+            <b><label for="dob">DOB (YYYY/MM/DD): </label></b>
+            <input id="datepicker" type="text" name="dob" maxlength="10">
+        </div>
         <button type="submit">Submit</button>
     </form>
 </div>
+
+<script>
+    var button = $("button");
+    button.click(() => {
+        if ($("input").val() == "") {
+            alert("You didn't insert SHIT!")
+        }); 
+</script>
